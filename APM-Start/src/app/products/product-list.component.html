@@ -5,8 +5,10 @@
     <div class="row">
       <div class="col-md-2">Filter by:</div>
       <div class="col-md-4">
+
         <input type="text"
         [(ngModel)]="listFilter"/>
+
       </div>
     </div>
     <div class="row">
@@ -33,7 +35,7 @@
         </thead>
         <tbody>
           <!--Implementar tbody aqui! -->
-          <tr *ngFor='let product of products'>
+          <tr *ngFor='let product of filteredProducts'>
             <!-- Imagem do produto -->
           <td><img *ngIf='showImage'
             [src]='product.imageUrl'
@@ -42,8 +44,8 @@
             [style.margin.px]='imageMargin'
             ></td>
           <td>{{product.productName}}</td>
-          <td>{{product.productCode | lowercase}}</td>
-          <td>{{product.releaseDate}}</td>
+          <td>{{product.productCode | lowercase | convertToSpaces:'-'}}</td>
+          <td>{{product.releaseDate }}</td>
           <td>{{product.price | currency:'USD':'symbol':'1.2-2'}}</td>
           <td>{{product.starRating}}</td>
         </tr>
@@ -53,3 +55,4 @@
     </div>
   </div>
 </div>
+

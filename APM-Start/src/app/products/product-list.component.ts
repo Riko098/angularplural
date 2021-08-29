@@ -21,7 +21,7 @@ export class ProductListComponent implements OnInit{
     this._listFilter=value;
     console.log("In setter",value);
     this.filteredProducts=this.performFilter(value);
-  
+
   }
   filteredProducts:IProduct[]=[];
 
